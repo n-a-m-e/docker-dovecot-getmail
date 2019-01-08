@@ -4,7 +4,7 @@ services:
   getmail_dovecot:
     build:
       context: ./
-      dockerfile: dockerfile
+      dockerfile: Dockerfile
     image: kevinflynn387/mailserver-dovecot:latest
     container_name: mailserver1
     volumes:
