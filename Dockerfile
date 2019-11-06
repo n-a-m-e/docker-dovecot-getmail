@@ -2,7 +2,7 @@
 #
 # Author: kevinflynn387 [https://github.com/kevinflynn387/] <kevinflynn387@gmail.com>
 
-FROM debian:stretch-slim
+FROM debian:buster-slim
 MAINTAINER kevinflynn387 [https://github.com/kevinflynn387/] <kevinflynn387@gmail.com>
 
 # install debian packages
@@ -10,10 +10,10 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # install dovecot.org deb repository
 RUN apt-get update -qq \
- && apt-get install --no-install-recommends -y apt-transport-https curl gpg ca-certificates
+ && apt-get install --no-install-recommends -y apt-transport-https curl gpg gpg-agent ca-certificates
 RUN curl https://repo.dovecot.org/DOVECOT-REPO-GPG | gpg --import \
 && gpg --export ED409DA1 > /etc/apt/trusted.gpg.d/dovecot.gpg
-RUN echo "deb https://repo.dovecot.org/ce-2.3-latest/debian/stretch stretch main" > /etc/apt/sources.list.d/dovecot.list
+RUN echo "deb https://repo.dovecot.org/ce-2.3-latest/debian/buster buster main" > /etc/apt/sources.list.d/dovecot.list
 
 RUN apt-get update -qq \
  && apt-get install --no-install-recommends -y \
