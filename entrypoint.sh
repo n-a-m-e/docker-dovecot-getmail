@@ -23,7 +23,7 @@ for USER in $(ls -1 /home); do
     useradd --groups=users --no-create-home --shell='/bin/true' "$USER"
     echo -e "$DEFAULT_PASSWD\n$DEFAULT_PASSWD\n" | passwd "$USER"
     chown -R "$USER:$USER" "/home/$USER"
-    chmod 700 /home/$USER/{Maildir,sieve,offlineimap} || true
+    chmod 700 /home/$USER/{Maildir,sieve,.offlineimap} || true
   fi
 done
 
