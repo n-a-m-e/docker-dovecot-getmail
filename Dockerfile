@@ -1,9 +1,9 @@
-# Private email gateway with getmail and dovecot
+# Private email gateway with offlineimap and dovecot
 #
-# Author: kevinflynn387 [https://github.com/kevinflynn387/] <kevinflynn387@gmail.com>
+# Author: n-a-m-e [https://github.com/n-a-m-e/] <none>
 
 FROM debian:buster-slim
-MAINTAINER kevinflynn387 [https://github.com/kevinflynn387/] <kevinflynn387@gmail.com>
+MAINTAINER n-a-m-e [https://github.com/n-a-m-e/] <none>
 
 # install debian packages
 ENV DEBIAN_FRONTEND noninteractive
@@ -18,7 +18,7 @@ RUN echo "deb https://repo.dovecot.org/ce-2.3-latest/debian/buster buster main" 
 RUN apt-get update -qq \
  && apt-get install --no-install-recommends -y \
     cron \
-    getmail4 \
+    offlineimap \
     dovecot-imapd \
     dovecot-managesieved \
  && apt-get clean \
@@ -56,4 +56,4 @@ EXPOSE 4190
 #VOLUME /etc/ssl/private
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["tail", "--follow", "--retry", "/var/log/dovecot/dovecot.log", "/var/log/getmail/*.log"]
+CMD ["tail", "--follow", "--retry", "/var/log/dovecot/dovecot.log", "/var/log/offlineimap/offlineimap.log"]
