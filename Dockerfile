@@ -33,7 +33,7 @@ RUN sed -i 's/#log_path = syslog/log_path = \/var\/log\/dovecot\/dovecot.log/' /
  && sed -i 's/#ssl_cert =.*/ssl_cert = <\/etc\/ssl\/private\/dovecot.crt/' /etc/dovecot/conf.d/10-ssl.conf \
  && sed -i 's/#ssl_key =.*/ssl_key = <\/etc\/ssl\/private\/dovecot.key/' /etc/dovecot/conf.d/10-ssl.conf \
     # mailboxes
- && sed -i 's/^mail_location =.*/mail_location = maildir:~\/Maildir:INBOX=~\/Maildir\/.INBOX/' /etc/dovecot/conf.d/10-mail.conf \
+ && sed -i 's/^mail_location =.*/mail_location = maildir:~\/Maildir/' /etc/dovecot/conf.d/10-mail.conf \
  && sed -i 's/#separator = $/separator = \//' /etc/dovecot/conf.d/10-mail.conf \
  && sed -i 's/#lda_mailbox_autocreate =.*/lda_mailbox_autocreate = yes/' /etc/dovecot/conf.d/15-lda.conf \
  && sed -i 's/#lda_mailbox_autosubscribe =.*/lda_mailbox_autosubscribe = yes/' /etc/dovecot/conf.d/15-lda.conf \
