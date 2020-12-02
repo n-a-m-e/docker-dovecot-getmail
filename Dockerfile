@@ -21,6 +21,7 @@ RUN apt-get update -qq \
     offlineimap \
     dovecot-imapd \
     dovecot-managesieved \
+    dovecot-submissiond \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
