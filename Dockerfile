@@ -8,6 +8,9 @@ MAINTAINER n-a-m-e [https://github.com/n-a-m-e/] <none>
 # install debian packages
 ENV DEBIAN_FRONTEND noninteractive
 
+RUN apt update && apt upgrade -y
+Run apt-get install python3
+
 # install dovecot.org deb repository
 RUN apt-get update -qq \
  && apt-get install --no-install-recommends -y apt-transport-https curl gpg gpg-agent ca-certificates
@@ -47,6 +50,7 @@ ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 EXPOSE 143
+EXPOSE 587
 EXPOSE 993
 
 ENTRYPOINT ["/entrypoint.sh"]
