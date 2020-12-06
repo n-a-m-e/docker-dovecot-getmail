@@ -31,5 +31,6 @@ done
 echo "Starting services..."
 /etc/init.d/dovecot start
 /etc/init.d/cron start
+python3 /usr/local/bin/burlproxy.py &
 
 exec "$@"
