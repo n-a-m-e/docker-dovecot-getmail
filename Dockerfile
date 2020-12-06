@@ -39,6 +39,8 @@ RUN sed -i 's/#log_path = syslog/log_path = \/var\/log\/dovecot\/dovecot.log/' /
     # imap idle
  && sed -i 's/#imap_idle_notify_interval =.*/imap_idle_notify_interval = 29 mins/' /etc/dovecot/conf.d/20-imap.conf
 
+RUN curl https://raw.githubusercontent.com/HendrikF/burlproxy/master/burlproxy.py --output /usr/local/bin/burlproxy.py
+
 # setup entrypoint
 ENV DEFAULT_PASSWD="replaceMeNow"
 ADD entrypoint.sh /entrypoint.sh
