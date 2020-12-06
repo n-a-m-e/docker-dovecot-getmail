@@ -9,7 +9,6 @@ MAINTAINER n-a-m-e [https://github.com/n-a-m-e/] <none>
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt update && apt upgrade -y
-Run apt-get install python3
 
 # install dovecot.org deb repository
 RUN apt-get update -qq \
@@ -25,6 +24,7 @@ RUN apt-get update -qq \
     dovecot-imapd \
     dovecot-managesieved \
     dovecot-submissiond \
+    python3 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
