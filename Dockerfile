@@ -53,6 +53,7 @@ RUN chmod +x /entrypoint.sh
 EXPOSE 143
 EXPOSE 587
 EXPOSE 993
+EXPOSE 1587
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["tail", "--follow", "--retry", "/var/log/dovecot/dovecot.log", "/var/log/offlineimap/offlineimap.log"]
