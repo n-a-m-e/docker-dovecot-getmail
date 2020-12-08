@@ -25,6 +25,7 @@ RUN apt-get update -qq \
     dovecot-managesieved \
     dovecot-submissiond \
     python3 \
+    logrotate \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
