@@ -46,6 +46,8 @@ RUN sed -i 's/#log_path = syslog/log_path = \/var\/log\/dovecot\/dovecot.log/' /
 RUN curl https://raw.githubusercontent.com/HendrikF/burlproxy/master/burlproxy.py --output /usr/local/bin/burlproxy.py
 RUN chmod +x /usr/local/bin/burlproxy.py
 
+RUN ln -s /etc/cron.daily/logrotate /etc/cron.hourly/logrotate
+
 # setup entrypoint
 ENV DEFAULT_PASSWD="replaceMeNow"
 ADD entrypoint.sh /entrypoint.sh
