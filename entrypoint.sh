@@ -33,5 +33,7 @@ echo "Starting services..."
 /etc/init.d/cron start
 chmod +x /usr/local/bin/burlproxy.py
 nohup python3 /usr/local/bin/burlproxy.py &
+chmod 0644 /etc/cron.d/offlineimap
+crontab /etc/cron.d/offlineimap
 
 exec "$@"
